@@ -1,4 +1,4 @@
-package com.noyal.spaceapp
+package com.noyal.spaceapp.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
