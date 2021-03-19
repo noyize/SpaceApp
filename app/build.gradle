@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
 }
 
@@ -61,6 +62,9 @@ dependencies {
 
     // Coil
     implementation 'io.coil-kt:coil:1.1.1'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     // Insetter
     implementation 'dev.chrisbanes.insetter:insetter:0.5.0'

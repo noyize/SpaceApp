@@ -2,7 +2,9 @@ package com.noyal.spaceapp.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.noyal.spaceapp.databinding.ActivityMainBinding
+import com.noyal.spaceapp.util.getJsonDataFromAsset
 import dev.chrisbanes.insetter.Insetter
 
 class MainActivity : AppCompatActivity() {
@@ -14,5 +16,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Insetter.CONSUME_AUTO
+
     }
 }
