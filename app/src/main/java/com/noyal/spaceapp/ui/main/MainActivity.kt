@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import com.noyal.spaceapp.databinding.ActivityMainBinding
 import com.noyal.spaceapp.util.getJsonDataFromAsset
+import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.insetter.Insetter
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
