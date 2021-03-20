@@ -14,6 +14,7 @@ import com.noyal.spaceapp.R
 import com.noyal.spaceapp.data.News
 import com.noyal.spaceapp.databinding.ActivityMainBinding
 import com.noyal.spaceapp.databinding.FragmentMainBinding
+import com.noyal.spaceapp.util.GridSpacingItemDecoration
 import com.noyal.spaceapp.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,6 +41,7 @@ class MainFragment : Fragment(R.layout.fragment_main), NewsAdapter.OnItemClickLi
             recyclerView.apply {
                 adapter = newsAdapter
                 layoutManager = GridLayoutManager(requireContext(), 2)
+                addItemDecoration(GridSpacingItemDecoration(2,32,true))
             }
         }
     }
