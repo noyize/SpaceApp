@@ -2,14 +2,15 @@ package com.noyal.spaceapp.ui.details
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.noyal.spaceapp.R
 import com.noyal.spaceapp.data.News
 import com.noyal.spaceapp.databinding.ItemDetailBinding
-import dev.chrisbanes.insetter.applySystemWindowInsetsToMargin
 
 
 class DetailAdapter() :
@@ -18,6 +19,9 @@ class DetailAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val typeface = ResourcesCompat.getFont(parent.context, R.font.bai_jam_bold)
+        binding.collapsingToolbarLayout.setCollapsedTitleTypeface(typeface)
+        binding.collapsingToolbarLayout.setExpandedTitleTypeface(typeface)
         return DetailViewHolder(binding)
 
 

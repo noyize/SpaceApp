@@ -59,4 +59,7 @@
     <item name="android:textAppearance">@style/TextAppearance.SpaceApp.Body2</item>
   </style>
 
+  <style name="CollapsingToolbar" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+    <item name="android:textAppearance">@style/TextAppearance.SpaceApp.Headline6</item>
+  </style>
 </resources>
