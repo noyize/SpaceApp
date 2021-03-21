@@ -45,7 +45,7 @@ class MainFragment : Fragment(R.layout.fragment_main), NewsAdapter.OnItemClickLi
     }
 
     private fun observeSpaceNews() {
-        viewModel.spaceNews.asLiveData().observe(viewLifecycleOwner) {
+        viewModel.spacePicture.asLiveData().observe(viewLifecycleOwner) {
             when (it) {
                 is Resource.Loading -> binding.progressBar.isVisible = true
                 is Resource.Success -> {

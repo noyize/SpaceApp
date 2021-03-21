@@ -7,7 +7,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class News(
+data class Picture(
     @SerializedName("copyright")
     val copyright: String?,
     @SerializedName("date")

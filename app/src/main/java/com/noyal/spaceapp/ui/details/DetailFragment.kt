@@ -53,7 +53,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     }
 
     private fun gotoDetails(position: Int) {
-        viewModel.spaceNews.asLiveData().observe(viewLifecycleOwner) {
+        viewModel.spacePicture.asLiveData().observe(viewLifecycleOwner) {
             when (it) {
 
                 is Resource.Success -> {

@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.noyal.spaceapp.data.News
+import com.noyal.spaceapp.data.Picture
 import com.noyal.spaceapp.databinding.ItemNewsBinding
 import kotlinx.coroutines.Dispatchers
 
 
 class NewsAdapter(private val listener: OnItemClickListener) :
-    ListAdapter<News, RecyclerView.ViewHolder>(DiffCallback) {
+    ListAdapter<Picture, RecyclerView.ViewHolder>(DiffCallback) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -44,9 +44,9 @@ class NewsAdapter(private val listener: OnItemClickListener) :
     inner class NewsViewHolder(private val binding: ItemNewsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(news: News) {
+        fun bind(picture: Picture) {
             binding.apply {
-                newsThumbnail.load(news.url){
+                newsThumbnail.load(picture.url){
                     dispatcher(Dispatchers.IO)
                     crossfade(true)
                 }
@@ -57,12 +57,12 @@ class NewsAdapter(private val listener: OnItemClickListener) :
     }
 }
 
-object DiffCallback : DiffUtil.ItemCallback<News>() {
-    override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
+object DiffCallback : DiffUtil.ItemCallback<Picture>() {
+    override fun areItemsTheSame(oldItem: Picture, newItem: Picture): Boolean {
         return oldItem.url == newItem.url
     }
 
-    override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {
+    override fun areContentsTheSame(oldItem: Picture, newItem: Picture): Boolean {
         return oldItem == newItem
     }
 }

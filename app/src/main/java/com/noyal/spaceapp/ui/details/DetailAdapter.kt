@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.noyal.spaceapp.R
-import com.noyal.spaceapp.data.News
+import com.noyal.spaceapp.data.Picture
 import com.noyal.spaceapp.databinding.ItemDetailBinding
 import kotlinx.coroutines.Dispatchers
 
 
 class DetailAdapter(context: Context) :
-    ListAdapter<News, RecyclerView.ViewHolder>(DiffCallback) {
+    ListAdapter<Picture, RecyclerView.ViewHolder>(DiffCallback) {
     private val typeface = ResourcesCompat.getFont(context, R.font.bai_jam_bold)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -47,17 +47,17 @@ class DetailAdapter(context: Context) :
     inner class DetailViewHolder(private val binding: ItemDetailBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(news: News) {
+        fun bind(picture: Picture) {
             binding.apply {
-                itemImage.load(news.hdUrl){
+                itemImage.load(picture.hdUrl){
                     dispatcher(Dispatchers.IO)
                     crossfade(true)
                 }
 
-                collapsingToolbarLayout.title = news.title
-                itemDate.text = news.date
-                itemDescription.text = news.explanation
-                news.copyright?.let {
+                collapsingToolbarLayout.title = picture.title
+                itemDate.text = picture.date
+                itemDescription.text = picture.explanation
+                picture.copyright?.let {
                     itemCopyright.isVisible = true
                     itemCopyright.text = it
                 }
@@ -69,12 +69,12 @@ class DetailAdapter(context: Context) :
     }
 }
 
-object DiffCallback : DiffUtil.ItemCallback<News>() {
-    override fun areItemsTheSame(oldItem: News, newItem: News): Boolean {
+object DiffCallback : DiffUtil.ItemCallback<Picture>() {
+    override fun areItemsTheSame(oldItem: Picture, newItem: Picture): Boolean {
         return oldItem.url == newItem.url
     }
 
-    override fun areContentsTheSame(oldItem: News, newItem: News): Boolean {
+    override fun areContentsTheSame(oldItem: Picture, newItem: Picture): Boolean {
         return oldItem == newItem
     }
 }
