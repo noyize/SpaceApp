@@ -25,8 +25,8 @@ class MainViewModel @Inject constructor(private val spaceNewsRepository: SpaceNe
             _spaceNews.emit(Resource.Loading)
             spaceNewsRepository.getSpaceNews().catch { exception ->
                 _spaceNews.emit(Resource.Error(error = exception.message))
-            }.collect {
-                _spaceNews.emit(Resource.Success(it))
+            }.collect { pictureList ->
+                _spaceNews.emit(Resource.Success(pictureList.sortedByDescending { it.date }))
             }
         }
     }
