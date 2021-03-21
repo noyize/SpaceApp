@@ -2,17 +2,14 @@ package com.noyal.spaceapp.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.noyal.spaceapp.R
-import com.noyal.spaceapp.data.News
-import com.noyal.spaceapp.databinding.ActivityMainBinding
 import com.noyal.spaceapp.databinding.FragmentMainBinding
 import com.noyal.spaceapp.util.GridSpacingItemDecoration
 import com.noyal.spaceapp.util.Resource
@@ -23,7 +20,7 @@ class MainFragment : Fragment(R.layout.fragment_main), NewsAdapter.OnItemClickLi
 
     private lateinit var binding: FragmentMainBinding
     private lateinit var newsAdapter: NewsAdapter
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by activityViewModels()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,6 +36,7 @@ class MainFragment : Fragment(R.layout.fragment_main), NewsAdapter.OnItemClickLi
         newsAdapter = NewsAdapter(this)
         binding.apply {
             recyclerView.apply {
+                setHasFixedSize(true)
                 adapter = newsAdapter
                 layoutManager = GridLayoutManager(requireContext(), 2)
                 addItemDecoration(GridSpacingItemDecoration(2,32,true))
@@ -63,7 +61,7 @@ class MainFragment : Fragment(R.layout.fragment_main), NewsAdapter.OnItemClickLi
         }
     }
 
-    override fun onItemClick(deal: News) {
-        TODO("Not yet implemented")
+    override fun onItemClick(position:Int) {
+        findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment(position))
     }
 }

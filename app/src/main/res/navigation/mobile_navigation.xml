@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/mainFragment"
+        android:label="SpaceApp"
         android:name="com.noyal.spaceapp.ui.main.MainFragment"
-        android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_detailFragment"
@@ -16,7 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.noyal.spaceapp.ui.details.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        android:name="com.noyal.spaceapp.ui.details.DetailBaseFragment"
+        android:label="  "
+        tools:layout="@layout/fragment_detail_base" >
+
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
 </navigation>

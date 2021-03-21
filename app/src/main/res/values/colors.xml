@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/grey_100</color>
-    <color name="colorPrimaryVariant">@color/grey_200</color>
-    <color name="colorOnPrimary">@color/grey_900</color>
-    <color name="colorOnPrimaryVariant">@color/grey_100</color>
-    <color name="colorSecondary">@color/grey_100</color>
-    <color name="colorSurface">@color/grey_900</color>
-    <color name="colorOnSurface">@color/grey_900</color>
-    <color name="colorBackground">@color/grey_900</color>
-    <color name="colorOnBackground">@color/grey_900</color>
-    <color name="statusBarColor">@color/grey_200</color>
+
+
+  <color name="colorPrimary">@color/white</color>
+  <color name="colorPrimaryVariant">@color/white</color>
+
+  <color name="colorOnPrimary">@android:color/black</color>
+  <color name="colorOnPrimaryVariant">@color/white</color>
+
+  <color name="colorSecondary">@color/white</color>
+
+  <color name="colorSurface">@android:color/black</color>
+  <color name="colorOnSurface">@color/white</color>
+
+  <color name="colorBackground">@android:color/black</color>
+  <color name="colorOnBackground">@color/white</color>
+
+  <color name="statusBarColor">#B3FFFFFF</color>
+
+  <color name="containerTransformScrim">#80000000</color>
 </resources>

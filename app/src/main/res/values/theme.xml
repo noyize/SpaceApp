@@ -1,0 +1,97 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+  <style name="Platform.SpaceApp.v23" parent="Theme.MaterialComponents.NoActionBar">
+
+
+
+  </style>
+
+  <style name="Platform.SpaceApp" parent="Platform.SpaceApp.v23" />
+
+  <style name="Platform.Theme.SpaceApp" parent="Platform.SpaceApp" />
+
+  <style name="Base.Theme.SpaceApp" parent="Platform.Theme.SpaceApp">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+
+    <item name="colorOnPrimary">@color/colorOnPrimary</item>
+    <item name="colorOnPrimaryVariant">@color/colorOnPrimaryVariant</item>
+
+    <item name="colorSecondary">@color/colorSecondary</item>
+    <item name="colorSecondaryRipple">@color/color_secondary_20</item>
+
+    <item name="colorSurface">@color/colorSurface</item>
+    <item name="colorOnSurface">@color/colorOnSurface</item>
+
+    <item name="android:colorBackground">@color/colorBackground</item>
+    <item name="colorOnBackground">@color/colorOnBackground</item>
+
+    <!-- Color of our ToggleButtonGroup used for dark mode selections -->
+
+
+    <item name="elevationOverlayEnabled">false</item>
+    <item name="elevationOverlayColor">@android:color/transparent</item>
+
+    <item name="materialButtonStyle">@style/Widget.SpaceApp.Button</item>
+
+
+    <item name="textAppearanceOverline">@style/TextAppearance.SpaceApp.Overline2</item>
+    <item name="textAppearanceCaption">@style/TextAppearance.SpaceApp.Caption</item>
+    <item name="textAppearanceBody1">@style/TextAppearance.SpaceApp.Body1</item>
+    <item name="textAppearanceBody2">@style/TextAppearance.SpaceApp.Body2</item>
+    <item name="textAppearanceButton">@style/TextAppearance.SpaceApp.Button</item>
+    <item name="textAppearanceSubtitle1">@style/TextAppearance.SpaceApp.Subtitle1</item>
+    <item name="textAppearanceSubtitle2">@style/TextAppearance.SpaceApp.Subtitle2</item>
+    <item name="textAppearanceHeadline3">@style/TextAppearance.SpaceApp.Headline3</item>
+    <item name="textAppearanceHeadline4">@style/TextAppearance.SpaceApp.Headline4</item>
+    <item name="textAppearanceHeadline5">@style/TextAppearance.SpaceApp.Headline5</item>
+    <item name="textAppearanceHeadline6">@style/TextAppearance.SpaceApp.Headline6</item>
+
+    <item name="android:statusBarColor">@color/colorOnPrimary</item>
+    <item name="android:navigationBarColor">@color/colorOnPrimary</item>
+
+
+
+  </style>
+
+<!--  <style name="Theme.SpaceApp" parent="Base.Theme.SpaceApp">-->
+<!--    <item name="android:windowBackground">@drawable/splash_layout</item>-->
+<!--    <item name="android:statusBarColor">@color/maroon_700</item>-->
+<!--    <item name="android:windowLightStatusBar">false</item>-->
+<!--    <item name="android:navigationBarColor">@color/maroon_700</item>-->
+<!--  </style>-->
+
+  <style name="Main" parent="Base.Theme.SpaceApp">
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:navigationBarColor">@android:color/transparent</item>
+  </style>
+
+
+
+  <style name="Theme.SpaceApp.QsPopup" parent="Base.Theme.SpaceApp">
+    <item name="android:colorBackgroundCacheHint">@null</item>
+
+    <item name="android:windowFrame">@null</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowAnimationStyle">@style/Animation.AppCompat.Dialog</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:backgroundDimEnabled">true</item>
+    <item name="android:backgroundDimAmount">0.32</item>
+    <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
+
+    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:navigationBarColor">@android:color/transparent</item>
+  </style>
+  <style name="AppTheme.Tabs.TextAppearance" parent="TextAppearance.Design.Tab">
+    <item name="fontFamily">@font/bai_jam_semibold</item>
+    <item name="android:textSize">17sp</item>
+    <item name="lineHeight">24sp</item>
+    <item name="android:letterSpacing">0.0235</item>
+    <item name="textAllCaps">false</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+</resources>

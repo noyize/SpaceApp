@@ -1,33 +1,31 @@
-package com.noyal.spaceapp.ui.main
+package com.noyal.spaceapp.ui.details
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.noyal.spaceapp.data.News
-import com.noyal.spaceapp.databinding.ItemNewsBinding
+import com.noyal.spaceapp.databinding.ItemDetailBinding
+import dev.chrisbanes.insetter.applySystemWindowInsetsToMargin
 
 
-class NewsAdapter(private val listener: OnItemClickListener) :
+class DetailAdapter() :
     ListAdapter<News, RecyclerView.ViewHolder>(DiffCallback) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding = ItemNewsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return NewsViewHolder(binding)
+        val binding = ItemDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DetailViewHolder(binding)
 
 
     }
 
-    interface OnItemClickListener {
-        fun onItemClick(position: Int)
-
-    }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is NewsViewHolder) {
+        if (holder is DetailViewHolder) {
             holder.bind(getItem(position))
         }
     }
@@ -40,15 +38,24 @@ class NewsAdapter(private val listener: OnItemClickListener) :
         return currentList[position].url.hashCode().toLong()
     }
 
-    inner class NewsViewHolder(private val binding: ItemNewsBinding) :
+    inner class DetailViewHolder(private val binding: ItemDetailBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(news: News) {
             binding.apply {
-                newsThumbnail.load(news.url){
+                itemImage.load(news.url) {
                     crossfade(true)
                 }
-                root.setOnClickListener { listener.onItemClick(adapterPosition) }
+                itemImage.load(news.hdUrl)
+
+                collapsingToolbarLayout.title = news.title
+                itemDate.text = news.date
+                itemDescription.text = news.explanation
+                news.copyright?.let {
+                    itemCopyright.isVisible = true
+                    itemCopyright.text = it
+                }
+
             }
         }
 

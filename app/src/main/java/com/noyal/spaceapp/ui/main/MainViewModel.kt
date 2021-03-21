@@ -34,4 +34,8 @@ class MainViewModel @Inject constructor(private val spaceNewsRepository: SpaceNe
     init {
         getSpaceNews()
     }
+
+    fun getNews(position: Int) {
+        return
+    }
 }

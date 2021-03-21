@@ -74,8 +74,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
 
     // Insetter
-    implementation 'dev.chrisbanes.insetter:insetter:0.5.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "dev.chrisbanes:insetter-ktx:0.3.1"
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
