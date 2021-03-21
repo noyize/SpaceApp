@@ -7,18 +7,22 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:label="SpaceApp"
         android:name="com.noyal.spaceapp.ui.main.MainFragment"
-        tools:layout="@layout/fragment_main" >
+        android:label="SpaceApp"
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.noyal.spaceapp.ui.details.DetailBaseFragment"
+        android:name="com.noyal.spaceapp.ui.details.DetailFragment"
         android:label="  "
-        tools:layout="@layout/fragment_detail_base" >
+        tools:layout="@layout/fragment_detail">
 
         <argument
             android:name="position"

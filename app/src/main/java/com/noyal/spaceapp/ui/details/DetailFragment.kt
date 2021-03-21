@@ -8,43 +8,42 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.SnapHelper
 import com.noyal.spaceapp.R
-import com.noyal.spaceapp.databinding.FragmentDetailBaseBinding
+import com.noyal.spaceapp.databinding.FragmentDetailBinding
+
 import com.noyal.spaceapp.ui.main.MainViewModel
-import com.noyal.spaceapp.ui.main.NewsAdapter
-import com.noyal.spaceapp.util.GridSpacingItemDecoration
 import com.noyal.spaceapp.util.Resource
+import dev.chrisbanes.insetter.applySystemWindowInsetsToMargin
 
 
-class DetailBaseFragment : Fragment(R.layout.fragment_detail_base) {
+class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private val viewModel: MainViewModel by activityViewModels()
-    private val args: DetailBaseFragmentArgs by navArgs()
-    private lateinit var binding: FragmentDetailBaseBinding
+    private val args: DetailFragmentArgs by navArgs()
+    private lateinit var binding: FragmentDetailBinding
     private lateinit var detailAdapter: DetailAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentDetailBaseBinding.bind(view)
+        binding = FragmentDetailBinding.bind(view)
 
         setUpRecyclerView()
         gotoDetails(args.position)
     }
 
     private fun setUpRecyclerView() {
-        detailAdapter = DetailAdapter()
+        detailAdapter = DetailAdapter(requireContext())
         binding.apply {
 
             val snapHelper = LinearSnapHelper()
             snapHelper.attachToRecyclerView(recyclerView)
             recyclerView.apply {
                 setHasFixedSize(true)
+                applySystemWindowInsetsToMargin(bottom = true)
                 fling(0,0)
                 adapter = detailAdapter
                 layoutManager =

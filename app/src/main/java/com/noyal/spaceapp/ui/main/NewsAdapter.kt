@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.noyal.spaceapp.data.News
 import com.noyal.spaceapp.databinding.ItemNewsBinding
+import kotlinx.coroutines.Dispatchers
 
 
 class NewsAdapter(private val listener: OnItemClickListener) :
@@ -46,12 +47,12 @@ class NewsAdapter(private val listener: OnItemClickListener) :
         fun bind(news: News) {
             binding.apply {
                 newsThumbnail.load(news.url){
+                    dispatcher(Dispatchers.IO)
                     crossfade(true)
                 }
                 root.setOnClickListener { listener.onItemClick(adapterPosition) }
             }
         }
-
 
     }
 }

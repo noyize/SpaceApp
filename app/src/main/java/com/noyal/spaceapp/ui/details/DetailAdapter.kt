@@ -1,5 +1,6 @@
 package com.noyal.spaceapp.ui.details
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
@@ -11,15 +12,16 @@ import coil.load
 import com.noyal.spaceapp.R
 import com.noyal.spaceapp.data.News
 import com.noyal.spaceapp.databinding.ItemDetailBinding
+import kotlinx.coroutines.Dispatchers
 
 
-class DetailAdapter() :
+class DetailAdapter(context: Context) :
     ListAdapter<News, RecyclerView.ViewHolder>(DiffCallback) {
-
+    private val typeface = ResourcesCompat.getFont(context, R.font.bai_jam_bold)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        val typeface = ResourcesCompat.getFont(parent.context, R.font.bai_jam_bold)
+
         binding.collapsingToolbarLayout.setCollapsedTitleTypeface(typeface)
         binding.collapsingToolbarLayout.setExpandedTitleTypeface(typeface)
         return DetailViewHolder(binding)
@@ -47,10 +49,10 @@ class DetailAdapter() :
 
         fun bind(news: News) {
             binding.apply {
-                itemImage.load(news.url) {
+                itemImage.load(news.hdUrl){
+                    dispatcher(Dispatchers.IO)
                     crossfade(true)
                 }
-                itemImage.load(news.hdUrl)
 
                 collapsingToolbarLayout.title = news.title
                 itemDate.text = news.date
